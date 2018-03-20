@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Google with plating</title>
+  </head>
+  <body>
+    <div style="height:233px;margin-top:89px">
+      <img src="images/googlelogo.png" height="92" width="272" style="padding-top:109px">
+      with
+      <img src="images/plating.png" height="40" width="150">
+    </div>
+
+    <form>
+        <input type="text" name="search">
+    </form>
+
+    <button class="ajaxsend">Google 검색</button>
+
+    <div class="result"></div>
+
+    <script>
+      document.querySelector('.ajaxsend').addEventListener('click', function(){
+        var inputdata = document.forms[0].elements[0].value;
+        sendAjax('http://127.0.0.1:8080/ajax_send_email', inputdata);
+      });
+
+      function sendAjax(url, data){
+        var data = {"search" : data}; //입력받은 내용을 json형태로 만든다.
+        data = JSON.stringify(data);
+
+        var xhr = new XMLHttpRequest();//xml이 뭘까?
+        xhr.open('POST', url);
+        xhr.setRequestHeader('Content-Type', "application/json");
+        xhr.send(data);
+
+        //데이터가 로드 될 시에 div태그의 result에 데이터가 추가되는 건가?
+        xhr.addEventListener('load', function(){
+            console.log(xhr.responseData);
+            var result = JSON.parse(xhr.responseText);
+            // if(result.result !== 'ok') return;
+            document.querySelector(".result").innerHTML = result.search;//html result클래스에 데이터 추가
+        });
+      };
+
+    </script>
+  </body>
+</html>

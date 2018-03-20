@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1><a href='/topic'>Server Side Javascript</a></h1>
+    <ol>
+      <% for(var i = 0; i<topics.length; i++){%>
+        <li>
+          <a href='/topic/<%= topics[i] %>'>
+            <%= topics[i] %>
+          </a>
+        </li>
+      <% }; %>
+    </ol>
+    <article>
+      <h2><%= title %></h2>
+      <%= description %>
+    </article>
+    <div>
+      <a href="/topic/new">new</a>
+    </div>
+  </body>
+</html>

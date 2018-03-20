@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>email form</title>
+  </head>
+  <body>
+    <form action="/email/form" method="post">
+      email : <input type="text" name="email"><br/>
+      <input type="submit">
+    </form>
+
+    <button class="ajaxsend">ajaxsend</button>
+
+    <div class="result">
+
+    </div>
+
+    <script>
+      document.querySelector('.ajaxsend').addEventListener('click', function(){
+        var inputdata = document.forms[0].elements[0].value;
+        sendAjax('http://127.0.0.1:3000/email/ajax', inputdata);
+      });
+
+      function sendAjax(url, data){
+        var data = {'email' : data };
+        data = JSON.stringify(data);//문자열로 만들어진 json형태, 반대로는 JSON.parse이다.
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url);//open은 첫번째 인자로 메소드를, 두번째 인자로는 url을 쓰게 되어있다.
+        xhr.setRequestHeader('Content-Type', "application/json");//서버에 보낼 때, json 형태로 보낸다. 그 때, application/json 형태로 보내면 좋다.
+        xhr.send(data);//json형태의 데이터가 날라간다.(문자열 이여야 한다.);
+
+        xhr.addEventListener('load', function(){
+            console.log(xhr.responseText);
+            var result = JSON.parse(xhr.responseText);//문자열이기 때문에 JSON.parse를 해야한다.(안하면 undifined뜬다.)
+            var resultDiv = document.querySelector(".result");
+
+            if(result.result !== "ok") resultDiv.innerHTML = "your email is not found";
+            else resultDiv.innerHTML = result.name;
+        }); //응답이 제대로 되었을때, load되었을때,
+      };
+
+    </script>
+  </body>
+</html>

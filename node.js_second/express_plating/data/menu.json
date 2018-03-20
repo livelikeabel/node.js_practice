@@ -1,0 +1,50 @@
+{
+	"food1": {
+		"name": "spicy clam stock pasta",
+		"price": "9,000 won",
+		"made by": "chef park",
+		"star": 4.5
+	},
+	"food2": {
+		"name": "seafood cream risotto",
+		"price": "12,000 won",
+		"made by": "plating chef-team",
+		"star": 4.8
+	},
+	"food3": {
+		"name": "roast chipotle chicken",
+		"price": "18,000 won",
+		"made by": "chef tailer",
+		"star": 4.7
+	},
+	"food4": {
+		"name": "quinoa chicken breast salad",
+		"price": "7,500 won",
+		"made by": "chef tailer",
+		"star": 4.6
+	},
+	"food5": {
+		"name": "japanese bentto",
+		"price": "10,000 won",
+		"made by": "chef kim",
+		"star": 3.6
+	},
+	"food6": {
+		"name": "Mexican Burrito Bowl",
+		"price": "10,000 won",
+		"made by": "chef tailer",
+		"star": 4.9
+	},
+	"food7": {
+		"name": "Gorgonzola Manzo Pasta",
+		"price": "11,000 won",
+		"made by": "chef park",
+		"star": 4.8
+	},
+	"food8": {
+		"name": "Spicy Spare Ribs and Glazed Apple",
+		"price": "11,000",
+		"made by": "chef kim bong su",
+		"star": 4.75
+	}
+}

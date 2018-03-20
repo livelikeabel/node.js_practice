@@ -1,0 +1,42 @@
+{
+  "food1": {
+      "name": "칼칼한 조개육수 파스타",
+      "en_name": "spicy clam stock pasta",
+      "price": "9,000 won"
+  },
+  "food2": {
+      "name": "해산물 크림 리조또",
+      "en_name": "seafood cream risotto",
+      "price": "12,000 won"
+  },
+  "food3": {
+      "name": "로스트 치폴레 치킨",
+      "en_name": "roast chipotle chicken",
+      "price": "18,000 won"
+  },
+  "food4": {
+      "name": "퀴노아 닭가슴살 샐러드",
+      "en_name": "quinoa chicken breast salad",
+      "price": "7,500 won"
+  },
+  "food5": {
+      "name": "수란을 얹은 김퓨레 라이스",
+      "en_name": "のりつくだに ライス と 温泉たまご",
+      "price": "10,000 won"
+  },
+  "food6": {
+      "name": "멕시칸 부리또 볼",
+      "en_name": "Mexican Burrito Bowl",
+      "price": "10,000 won"
+  },
+  "food7": {
+      "name": "고르곤졸라 만조 파스타",
+      "en_name": "Gorgonzola Manzo Pasta",
+      "price": "11,000 won"
+  },
+  "food8": {
+      "name": "매운 갈비와 글레이즈 사과",
+      "en_name": "Spicy Spare Ribs and Glazed Apple",
+      "price": "11,000 won"
+  }
+}

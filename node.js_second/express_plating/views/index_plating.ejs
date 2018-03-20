@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <% include nav/header.ejs %>
+
+    <h1><%= title %></h1>
+    <h3>Welcome to <%= title %></h3>
+    <p>플레이팅은 매주 신제품을 출시하며 현재까지 약 50여 개의 메뉴를 고객님께 선보였습니다.</p>
+    <!-- <p><%= money %><p> 이건 왜 주석처리 하면 되는걸까.... 다른데 money 변수 설정한 것도 없는데...ㅠㅠ-->
+
+    <h3>Weekly plating menu</h3>
+    <ol>
+      <% menus.forEach(function(item){ %>
+        <li><%=item%></li>
+      <% }); %>
+    </ol>
+
+  </body>
+</html>

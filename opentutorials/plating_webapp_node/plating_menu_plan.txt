@@ -1,0 +1,14 @@
+get('menus/') : view.ejs // 리스트 가져오기 SELECT
+get('menus/:id') : view.ejs
+
+get('menus/add') : add.ejs // 데이터 추가 INSERT
+  post('menus/add')
+  get('menus/:id') //redirection 시킬것임
+
+get('menus/:id/edit') : edit.ejs //수정? UPDATE
+  post('menus/:id/edit')
+  get('menus/:id')
+
+get('menus/:id/delete') : delete.ejs // 삭제 DELETE
+  post('menus/:id/delete')
+  get('menus/')

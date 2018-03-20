@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add menu</title>
+  </head>
+  <body>
+    <h1><a href="/menus">plating menu list</a></h1>
+    <ol>
+      <% for(var i = 0; i<menus.length; i++){%>
+        <li>
+          <a href='/menus/<%= menus[i].id %>'>
+          <%= menus[i].name%>
+          </a>
+        </li>
+      <% } %>
+    </ol>
+    <h3>New menu</h3>
+    <form action="/menus/add" method="post">
+      <p><input type="text" name="name" placeholder="menu name"></p>
+      <p><textarea name="description" placeholder="description"></textarea></p>
+      <p><input type="text" name="chef"  placeholder="chef"></p>
+      <p><input type="submit"></p>
+    </form>
+  </body>
+</html>
