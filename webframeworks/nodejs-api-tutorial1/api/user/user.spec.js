@@ -2,6 +2,20 @@ const should = require('should');
 const request = require('supertest');
 const app = require('../../app');
 
+describe('PUT /users/:id', () => {
+  it.only('should return 200 status code', (done) => {
+    request(app)
+        .put('/users/1')
+        .send({
+          name: 'foo'
+        })
+        .end((err, res) => {
+          if (err) throw err;
+          done();
+        });
+  });
+});
+
 describe('GET /users', () => {
   it('should return 200 status code', (done) => {
     request(app)
