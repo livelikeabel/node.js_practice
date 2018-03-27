@@ -15,7 +15,7 @@ describe('GET /users는', () => {
     it('최대 limit 개수만큼 응답한다.', (done) => {
       request(app)
           .get('/users?limit=2')
-          .end((err, res) => {
+          .end((err,res) => {
             res.body.should.have.lengthOf(2)
             done();
           })
@@ -29,4 +29,17 @@ describe('GET /users는', () => {
           .end(done);
     })
   })
+});
+
+describe('GET /users/1는', () => {
+  describe('성공시', () => {
+    it('id가 2인 유저 객체를 반환한다', (done) => {
+      request(app)
+          .get('/users/2')
+          .end((err, res) => {
+            res.body.should.have.property('id', 2);
+            done();
+          });
+    });
+  });
 });
