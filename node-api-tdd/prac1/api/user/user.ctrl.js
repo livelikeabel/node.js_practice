@@ -59,9 +59,11 @@ const create = (req, res) => {
 
 const update = (req, res) => {
   const id = parseInt(req.params.id, 10);
+  console.log('id : ', id);
   if (Number.isNaN(id)) return res.status(400).end();
 
   const name = req.body.name
+  console.log("name : ", name);
   if (!name) return res.status(400).end();
 
   models.User.findOne({where: {id}})
