@@ -12,4 +12,17 @@ const User = sequelize.define('User', {
   }
 })
 
-module.exports = {Sequelize, sequelize, User};
+const Menu = sequelize.define('Menu', {
+  name: {
+    type: Sequelize.STRING,
+    unique: true
+  },
+  price: {
+    type: Sequelize.STRING
+  },
+  rating: {
+    type: Sequelize.INTEGER
+  }
+})
+
+module.exports = { Sequelize, sequelize, User, Menu };
