@@ -25,4 +25,14 @@ const Menu = sequelize.define('Menu', {
   }
 })
 
-module.exports = { Sequelize, sequelize, User, Menu };
+const Chef = sequelize.define('Chef', {
+  name: {
+    type: Sequelize.STRING,
+    unique: true
+  },
+  career: {
+    type: Sequelize.STRING
+  }
+})
+
+module.exports = { Sequelize, sequelize, User, Menu, Chef };
