@@ -29,6 +29,17 @@ const show = function (req, res) {
   })
 }
 
+const destroy = function (req, res) {
+  const id = parseInt(req.params.id, 10);
+  if (Number.isNaN(id)) return res.status(400).end();
+
+  models.Chef.destroy({
+    where: {id}
+  }).then(() => {
+    res.status(204).end();
+  });
+}
+
 const create = (req, res) => {
   const name = req.body.name;
   const career = req.body.career;
@@ -76,4 +87,4 @@ const update = (req, res) => {
   })
 }
 
-module.exports = { create, index, show, update };
+module.exports = { create, index, show, update, destroy };

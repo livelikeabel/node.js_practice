@@ -4,7 +4,7 @@ const ctrl = require('./chef.ctrl');
 
 router.get('/', ctrl.index);
 router.get('/:id', ctrl.show);
-
+router.delete('/:id', ctrl.destroy);
 router.post('/', ctrl.create);
 router.put('/:id', ctrl.update);
 
