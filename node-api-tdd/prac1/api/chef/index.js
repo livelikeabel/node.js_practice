@@ -5,8 +5,8 @@ const ctrl = require('./chef.ctrl');
 router.get('/', ctrl.index);
 router.get('/:id', ctrl.show);
 
-
 router.post('/', ctrl.create);
+router.put('/:id', ctrl.update);
 
 
 module.exports = router;

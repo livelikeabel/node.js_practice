@@ -46,4 +46,34 @@ const create = (req, res) => {
       });
 }
 
-module.exports = { create, index, show };
+const update = (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  console.log('id : ', id);
+  if (Number.isNaN(id)) return res.status(400).end();
+
+  const name = req.body.name;
+  const career = req.body.career;
+  console.log('name : ', name, '| career : ', career);
+  if (!name && !career) return res.status(400).end();
+
+  models.Chef.findOne({
+    where: {id}
+  }).then(chef => {
+    if (!chef) return res.status(404).end();
+
+    chef.name = name;
+    chef.career = career;
+    chef.save()
+        .then(_ => {
+          res.json(chef);
+        })
+        .catch(err => {
+          if(err.name === 'SequelizeUniqueConstraintError') {
+            return res.status(409).end();
+          };
+          res.status(500).end();
+        })
+  })
+}
+
+module.exports = { create, index, show, update };
