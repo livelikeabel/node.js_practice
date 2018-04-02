@@ -1,5 +1,21 @@
 const models = require('../../models');
 
+const index = function (req, res) {
+  req.query.limit = req.query.limit || 10; // 리퀘스트의 쿼리의 limit? 이 있다면, limit까지 리턴, limit이 없으면 10번째 까지 리턴
+  const limit = parseInt(req.query.limit, 10);
+  if(Number.isNaN(limit)) {
+    return res.status(400).end();
+  }
+
+  models.Chef
+    .findAll({
+      limit: limit
+    })
+    .then(chefs => {
+      res.json(chefs);
+    });
+};
+
 const create = (req, res) => {
   const name = req.body.name;
   const career = req.body.career;
@@ -17,4 +33,4 @@ const create = (req, res) => {
       });
 }
 
-module.exports = { create };
+module.exports = { create, index };
