@@ -16,6 +16,19 @@ const index = function (req, res) {
     });
 };
 
+const show = function (req, res) {
+  const id = parseInt(req.params.id, 10);
+  if (Number.isNaN(id)) return res.status(400).end();
+
+  models.Chef.findOne({
+    where: {id}
+  }).then(chef => {
+    if (!chef) return res.status(404).end();
+    console.log(chef);
+    res.json(chef);
+  })
+}
+
 const create = (req, res) => {
   const name = req.body.name;
   const career = req.body.career;
@@ -33,4 +46,4 @@ const create = (req, res) => {
       });
 }
 
-module.exports = { create, index };
+module.exports = { create, index, show };

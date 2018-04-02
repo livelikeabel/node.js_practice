@@ -3,7 +3,7 @@ const router = express.Router();
 const ctrl = require('./chef.ctrl');
 
 router.get('/', ctrl.index);
-
+router.get('/:id', ctrl.show);
 
 
 router.post('/', ctrl.create);
