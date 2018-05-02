@@ -1,6 +1,7 @@
 let express = require('express');
 let app = express();
 let morgan = require('morgan');
+const syncDb = require('./bin/sync-db');
 let users = [
     {id: 1, name: 'kim sung jun'},
     {id: 2, name: 'hwang ju chan'},
@@ -27,6 +28,10 @@ app.post('/users', (req,res) => {
     res.send('create complete');
 })
 
-app.listen(3000, () => {
-    console.log('server running at 3000 port');
+syncDb().then(_=> {
+    console.log('Sync database!');
+    app.listen(3000, () => {
+        console.log('server running at 3000 port');
+    });
 })
+
